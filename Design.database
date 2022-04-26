@@ -1,0 +1,13 @@
+--1. Create database to include the item, the price, the stock amount and how many sold
+CREATE TABLE store(id INTEGER PRIMARY KEY, item TEXT, price INTEGER, stock INTEGER, sold INTEGER);
+INSERT INTO store VALUES (1, "blouse", 5, 10, 4);
+INSERT INTO store VALUES (2, "sweater", 8, 8, 3);
+INSERT INTO store VALUES (3, "purse", 7, 3, 2);
+INSERT INTO store VALUES (4, "hat", 2, 10, 2);
+INSERT INTO store VALUES (5, "pants", 12, 12, 3);
+
+--2. Calculate the amount of each project sold
+SELECT item, SUM(sold) FROM store GROUP BY price;
+
+--3/ Calculate the total amount of profit
+SELECT item, SUM(price*sold) FROM store;
